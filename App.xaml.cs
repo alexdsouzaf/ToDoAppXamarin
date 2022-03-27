@@ -19,18 +19,6 @@ namespace ToDoXamarin
 
         protected override void OnStart()
         {
-            //isso aqui é só um teste pra ter algum registro logo ao iniciar, esse codigo será removido
-            try
-            {
-                //var contexto = new MyDBContext();                
-                //TarefaModel teste = new TarefaModel { Id = "1", Descricao = "teste", Pendente = true };
-                //contexto.Add(teste);
-                //contexto.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                var v = ex.Message;
-            }
         }
 
         protected override void OnSleep()
