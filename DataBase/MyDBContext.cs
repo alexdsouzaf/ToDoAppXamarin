@@ -7,7 +7,7 @@ using ToDoXamarin.Models;
 
 namespace ToDoXamarin.DataBase
 {
-    public class MyDBContext : DbContext
+    public class MyDBContext : DbContext , IDisposable
     {
         public DbSet<TarefaModel> Tarefas { get; set; } 
 

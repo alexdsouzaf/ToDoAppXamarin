@@ -17,12 +17,14 @@ namespace ToDoXamarin.Services
 
         public async Task<List<TarefaModel>> BuscarTarefas(bool pTodas)
         {
-            var contexto = new MyDBContext();
-            if (pTodas)
-                return contexto.Tarefas.ToList();
-            else
-                return contexto.Tarefas.Where(p => !p.Concluida).OrderBy(o => o.Id).ToList();
-
+            using (var contexto = new MyDBContext())
+            {
+                if (pTodas)
+                    return contexto.Tarefas.ToList();
+                else
+                    return contexto.Tarefas.Where(p => !p.Concluida).OrderBy(o => o.Id).ToList();
+            }
+            
         }
     }
 }

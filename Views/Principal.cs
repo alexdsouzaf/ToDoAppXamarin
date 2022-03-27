@@ -100,10 +100,11 @@ namespace ToDoXamarin.Views
                 newTarefa.Descricao = userInput;
                 try
                 {
-                    var dbContext = new MyDBContext();
-                    await dbContext.AddAsync(newTarefa);
-                    await dbContext.SaveChangesAsync();
-
+                    using (var dbContext = new MyDBContext())
+                    {                    
+                        await dbContext.AddAsync(newTarefa);
+                        await dbContext.SaveChangesAsync();
+                    }
                 }
                 catch (Exception ex)
                 {

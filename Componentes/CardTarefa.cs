@@ -66,10 +66,12 @@ namespace ToDoXamarin.Componentes
         {
             try
             {
-                var dbContext = new MyDBContext();
-                this.Model.Concluida = !this.Model.Concluida;
-                dbContext.Update(this.Model);
-                await dbContext.SaveChangesAsync();
+                using (var dbContext = new MyDBContext())
+                {
+                    this.Model.Concluida = !this.Model.Concluida;
+                    dbContext.Update(this.Model);
+                    await dbContext.SaveChangesAsync();
+                }                
             }
             catch (Exception ex)
             {
